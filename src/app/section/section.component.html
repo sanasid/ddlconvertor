@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="container text-center box">
+    <mat-horizontal-stepper>
+      <mat-step label="Upload Input Scripts">
+        <app-upload-input></app-upload-input>
+        <!-- <app-preprocessing></app-preprocessing>  -->
+        <!-- <app-parse-schema></app-parse-schema> -->
+         <!-- <app-convert></app-convert>    -->
+      </mat-step>
+   
+      <mat-step label={{parseLable}}>
+        <app-parse-schema></app-parse-schema> 
+      </mat-step>
+      <mat-step label="Pre Processing">
+        <app-preprocessing></app-preprocessing>
+    </mat-step>
+      <mat-step label={{convertLable}}>
+         <app-convert></app-convert> 
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

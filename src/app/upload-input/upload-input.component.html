@@ -1,0 +1,73 @@
+<div class="card m-3">
+  <div class="card-body">
+    
+    <!-- <form name="form" [formGroup]="uploadForm" (ngSubmit)="onSubmit()"> -->
+      <form name="form" [formGroup]="uploadForm" >
+      <div class="row">
+        <div class="form-group col">
+          <label>{{sourceDatabase}}</label>
+          <select name="input_database" class="form-control selectpicker" 
+          formControlName="input_database" required [(ngModel)]="input_database">
+            <!-- <option value="" disabled selected>Select source database</option> -->
+            <option class="dropdown-item" disabled selected value="undefined">Select source database</option>
+
+            <option *ngFor="let item of this.sourceData;let i = index" value="{{item.dbname}}">
+              {{item.dbname}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col">
+          <label>{{targetDatabase}}</label>
+          <select name="output_database" class="form-control" 
+          formControlName="output_database" required [(ngModel)]="output_database">
+            <!-- <option value="" disabled selected>Select target database</option> -->
+            <option class="dropdown-item" disabled selected value="undefined">Select target database</option>
+            
+            <option *ngFor="let item of this.targetData;let i = index" value="{{item.dbname}}">
+              {{item.dbname}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-row justify-content-center">
+          <div class="file-field">
+            <label for="fileUpload"></label>
+            <input type="file" name="files" (change)="chooseFile($event.target.files);onFileSelected($event)" 
+            formControlName="files" multiple
+              accept=".txt" (click)="flipout()" #fileUploader  />
+              
+              <!-- <input type="file" multiple (change)="onFileSelected($event)"  />   -->
+          </div>
+          <div class="length">
+           {{length}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <textarea class="edit" placeholder="Or Paste the source DDL script manually here." formControlName="text"
+            name="text" (click)="flip()" [(ngModel)]="text"></textarea>
+
+        </div>
+      </div>
+      <!-- <button type="submit" matStepperNext mat-button class="btn btn-light float-right" 
+        [disabled]="uploadForm.invalid">
+        Submit & Next <i class="fa fa-arrow-right"></i></button> -->
+      <button type="submit" mat-button class="btn btn-light clear-btn float-right" 
+      (click)="reset()">Reset</button> 
+    </form>
+  </div>
+  <!-- <div class="status">
+    {{status}}
+    </div> -->
+</div>
+
+<button type="submit" matStepperNext mat-button class="btn btn-light float-right" 
+  (click)="onSubmit()">
+  Submit & Next <i class="fa fa-arrow-right"></i></button>
+
+
+ 
+
+ <!-- [disabled]="(uploadForm?.controls.files.touched || uploadForm?.controls.text.touched || uploadForm?.controls.files.dirty || uploadForm?.controls.text.dirty || uploadForm?.controls.files.invalid)"  -->

@@ -1,0 +1,71 @@
+.btn-primary {
+  color: #fff;
+  border: 2px solid #ef7e1a !important;
+  border-radius: 5px;
+  width: 119px !important;
+  background-color: #242425 !important;
+}
+
+/* .col-m-4 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.33%;
+          flex: 0 0 33.33%;
+  max-width: 33.33%;
+  display: inline-block !important;
+}
+
+.cen {
+  display: -ms-grid;
+  display: grid;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card-body {
+  padding: 2.25rem;
+}
+
+.edit {
+  height: 155px;
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+} */
+
+.row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 10px;
+}
+
+/* .Column {
+  display: table-cell;
+} */
+/*# sourceMappingURL=convert.component.css.map */
+
+
+element.style {
+}
+.card-text:last-child {
+    margin-bottom: 0;
+}
+.textedit {
+  padding: 15px;
+    border: 1px solid #ef7e1a !important;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  background-color: #fff  !important;
+  padding: 2.5em  !important;
+  border: 1px solid #f8f8f8 !important;
+}

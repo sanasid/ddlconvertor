@@ -1,0 +1,155 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+.center {
+  text-align: center;
+}
+
+.btn {
+  width: 100px;
+}
+
+.btn-secondary {
+  color: #fff;
+  border: 2px solid #ef7e1a;
+  border-radius: 5px;
+  width: 119px !important;
+  background-color: #242425;
+  font-size: 14px;
+}
+
+.form-group.col {
+  display: -webkit-inline-box  !important;
+  display: -ms-inline-flexbox  !important;
+  display: inline-flex  !important;
+}
+
+.card-body {
+  padding: 3.25rem;
+}
+
+.edit {
+  height: 150px;
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+}
+
+option {
+  background-color: #ef7e1a;
+  color: white;
+}
+
+.box {
+  border-radius: .5rem;
+}
+
+.jumbotron {
+  background-color: #ef7e1a !important;
+  padding: 2rem 2rem;
+  margin-top: 57px;
+}
+
+.container.text-center.box {
+  max-width: 940px !important;
+}
+
+textarea.edit {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: .2rem;
+}
+
+textarea.edit:hover {
+  border: 1px solid #ef7e1a;
+}
+
+label {
+  clear: both;
+}
+
+.form-group.col label {
+  text-align: left;
+}
+
+span {
+  margin-left: -100px;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+  padding: 10px 30px 30px 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px #c96207;
+          box-shadow: 5px 5px #c96207;
+  background-color: #f8f8f8;
+}
+
+.mat-stepper-horizontal-line {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  height: 0;
+  margin: 0 -16px;
+  min-width: 32px;
+  border-top-color: #ef7e1a !important;
+}
+
+::ng-deep .mat-stepper-horizontal-line {
+  border-top-width: 5px !important;
+  border-top-style: dotted !important;
+}
+
+::ng-deep .mat-step-icon {
+  border-radius: 50%;
+  height: 35px  !important;
+  width: 35px  !important;
+}
+
+@media (min-width: 980px) {
+  #main-header.et-fixed-header {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(25%, #242524), color-stop(75%, #242425), color-stop(75%, rgba(0, 0, 0, 0)));
+    background: linear-gradient(to bottom, #242524 25%, #242425 75%, rgba(0, 0, 0, 0) 75%);
+  }
+}
+
+input[type=file]::file-selector-button {
+  border: 2px solid #ef7e1a;
+  padding: .2em .4em;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-transition: 1s;
+  transition: 1s;
+  width: 160px;
+  height: 40px;
+  font-weight: 500;
+}
+
+input[type=file]::file-selector-button:hover {
+  color: #ef7e1a;
+  border: 2px solid #ef7e1a;
+}
+
+input[type="file" i] {
+  font-weight: 500;
+}
+
+input[type="file"] {
+  color: transparent;
+}
+
+.fileUpload input.upload {
+  display: inline-block;
+}
+
+.length {
+  float: left;
+  margin-top: 8px;
+  text-align: left;
+  margin-left: -90px;
+}
+/*# sourceMappingURL=upload-input.component.css.map */

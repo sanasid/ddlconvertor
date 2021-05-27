@@ -1,0 +1,75 @@
+<div class="row">
+        <div class="col-sm-6">
+            <span class="font"> Press Convert to convert the source
+               <br>script to SnowSQL</span>
+          <button class="btn btn-primary" (click)="conversion()">Convert</button>  
+        </div>
+        <div class="col-sm-6">
+            <span class="font"> Press Download  to save the 
+              <br>SnowSQL scripts</span>
+          
+              <a [href]="fileUrl" download="sample.sql" 
+              class="btn btn-primary dabutton" *ngIf="multiple_querylen == 1">Download</a>
+            
+              <a (click)="downloadtry()" 
+              class="btn btn-primary dabutton" *ngIf="multiple_querylen != 1">Download</a>
+
+      
+        </div>
+      
+        <div class="col-sm-6">
+          <h4 class="m-0 text-left cards">Input scripts
+            <!-- <span class="material-icons refresh mat"  
+            (click)="getDataInputScript()">
+              refresh
+          </span> -->
+          </h4>
+
+        
+            
+           
+          <div class="card textedit">
+            <div class="btn-center"> 
+            <button class="btn btn-light" *ngIf="isButtonVisible" 
+            (click)="isButtonVisible = false;getDataInputScript()">
+              Click here
+            </button>
+              </div> 
+         
+              <div *ngIf="multiple_querylen == 1" > 
+                <textarea class="card-text b-0" 
+                cols="45" rows="10">{{ multiple_query[0].url }}</textarea>
+              </div>
+               <div *ngIf="multiple_querylen != 1">
+                <ul name="multipleInput_query" class="pl-0 mul">
+                <li *ngFor="let data of multiple_query" >
+                   {{ data.url }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <h4 class="m-0 text-left cards">Output scripts</h4>
+          <div class="card textedit">
+            <div  *ngIf="convert?.length > 1">
+              <!-- <textarea [(ngModel)]="convert" name="singleOutput_query" class="card-text b-0" 
+              cols="50" rows="10"></textarea> -->
+              <textarea class="card-text b-0" 
+               cols="45" rows="10">
+                {{ convert }}</textarea>
+              </div>
+              <div *ngIf="convert_multiple?.length ==1">
+                <ul class="pl-0" >
+                <li *ngFor="let data of convert_multiple">
+                 {{ data.filename }}
+                </li>
+              </ul> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <button mat-button matStepperPrevious class="btn btn-light mr-3 float-left">
+        <i class="fa fa-arrow-left"></i> Previous</button>
+
+ <!-- *ngIf="convert?.length >20"> 46 line-->

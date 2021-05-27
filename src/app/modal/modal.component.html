@@ -1,0 +1,57 @@
+<div class="card m-3">
+  <div class="card-body">
+    <!-- <button mat-button mat-dialog-close>
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+<form [formGroup]="phaseForm" class="xx" novalidate (ngSubmit)="onSubmit()">
+  <div formGroupName="phaseExecutions">
+    <div formArrayName="PRE">
+      <button type="button" class="btnshow" (click)="addMorePhase()">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </button>
+      <div>
+        <div class="row column-border">
+          <label class="col-sm-4">Column Name</label>
+          <label class="col-sm-4">Column Type</label>
+          <label class="col-sm-4">Allow Null</label>
+        </div>
+        <div
+          class="row space"
+          *ngFor="let phase of phaseArray.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <input
+            type="text"
+            class="form-control col-sm-4"
+            formControlName="phaseValue"
+            placeholder="Column Name"
+          />
+          <select class="form-control col-sm-4" formControlName="phaseType">
+             <option value="" disabled selected>Column Type</option>
+            <option value="varchar">varchar</option>
+            <option value="int">int</option>
+            <option value="float">float</option>
+            <option value="datetime">datetime</option>
+          </select>
+          <input
+            type="checkbox"
+            class="form-control col-sm-2 check"
+            formControlName="phaseValue1"/>
+          
+            <button type="button" [disabled]="i==0" class="btnshow1" (click)="removePhone(i)">
+              <i class="fa fa-minus-circle" aria-hidden="true"></i>
+            </button>
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <br />
+  <button type="submit" class="btn btn-light" [disabled]="phaseForm.invalid">Save</button>
+  <button mat-button class="btn btn-light" mat-dialog-close>Cancel</button>
+</form>
+</div>
+</div>
+
+

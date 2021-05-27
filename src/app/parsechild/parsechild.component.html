@@ -1,0 +1,19 @@
+<ng-container>
+    <span *ngIf="!isEditing">
+        {{item}}
+        <span class="material-icons delete" (click)="removeItem()">
+        deletes
+        </span>
+        <span class="material-icons edit"
+        (click)="switchEditMode()">
+        edit
+        </span>
+        
+    </span>
+    <span *ngIf="isEditing">
+        <input type="text" [(ngModel)]="editingItem" class="input"/>
+        <span class="material-icons" (click)="saveItem()">offline_pin</span>
+<span class="material-icons" (click)="cancel()">cancel</span>
+
+    </span>
+</ng-container>

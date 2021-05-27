@@ -1,0 +1,63 @@
+<div class="card m-3">
+  <div class="card-body">
+          <!-- <form name="form" [formGroup]="processingForm" (ngSubmit)="processingData();"> -->
+            <form name="form" [formGroup]="processingForm" (ngSubmit)="onSubmit();">
+            <div class="container">
+              <div class="row">
+                <label class="col-6">Audit columns to add after conversion in script?</label>
+                <label class="col-2"> Specific tables
+                  <input type="radio"  (click)="testClick($event)" 
+                   name="option_tables" formControlName="option_tables" value="Specific tables">
+                  <div *ngIf="isSpecific" id="divshow" style="float: right;">
+                  <textarea placeholder="If Specific tables, then please mention the tables name (comma separated) for which Audit Columns need to be added.
+                  " contentEditable="true" class="editSpecific" formControlName="specific_tables"></textarea>
+            <button type="submit" class="btn btn-primary" (click)="openDialog();" 
+            formControlName="specific_tables" ngDefaultControl>{{text}}</button>
+
+          </div>
+                </label>
+                <label class="col-2">All tables
+                  <input type="radio"  (click)="testClick($event)" name="option_tables"
+                   formControlName="option_tables" value="All tables" >
+                  <div *ngIf="isShown" id="divshow" style="float:right;" >
+                    <button type="submit" class="btn btn-primary"
+                    (click)="openDialog();" formControlName="columns" ngDefaultControl>{{text}}</button>
+                    </div>
+                </label>
+                <label class="col-2"> No<input type="radio" name="option_tables" 
+                  formControlName="option_tables" value="No"  (click)="testClick($event)" ></label>
+              </div>
+            </div>
+            <!-- <div class="container">
+              <div class="row">
+                  <label class="col-8">Any constraints in DDL Script that need to handle and check?</label>
+                  <label class="col-2"> Yes<input type="radio" (click)="toggleYes()" name="group2">
+                    <div *ngIf="isYes" id="divshow" style="float: right;" >
+                      <textarea data-tip="This is the text of the tooltip" placeholder="Please share the list of constraints for which needs to be handled." contentEditable="true"
+                class="editSpecific" formControlName="yes"></textarea>
+              </div>
+                  </label>
+                  <label class="col-2"> No<input type="radio" name="group2"></label>
+              </div>
+            </div> -->
+            
+              
+      <!-- <button mat-button  class="btn btn-secondary float-right dabutton" [disabled]="!processingForm.valid" (click)="onSubmit()">SUBMIT</button> -->
+     
+      
+    </form>
+  </div>
+</div>
+<!-- <button mat-button matStepperPrevious class="btn btn-light mr-3">
+  <i class="fa fa-arrow-left"></i> BACK</button>
+<button mat-button matStepperNext class="btn btn-light">
+  NEXT <i class="fa fa-arrow-right"></i></button> -->
+
+  <button mat-button matStepperPrevious class="btn btn-light mr-3 float-left">
+    <i class="fa fa-arrow-left"></i> Previous</button>
+  
+    <button mat-button matStepperNext class="btn btn-light float-right" 
+    (click)="onSubmit()">
+      Submit & Next <i class="fa fa-arrow-right"></i></button>
+  
+

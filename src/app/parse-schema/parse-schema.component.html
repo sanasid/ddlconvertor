@@ -1,0 +1,238 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header text-left">Source Components
+      <!-- <span class="material-icons refresh mat" (click)="getData()">
+        refresh
+    </span> -->
+  </div>
+  <!-- <span class="material-icons refresh mat" *ngIf="isButtonVisible" (click)="isButtonVisible = false;getData()">
+    refresh
+</span> -->
+<div class="btn-center">
+<button class="btn btn-light " *ngIf="isButtonVisible" (click)="isButtonVisible = false;getData()">
+  Click here
+</button>
+</div>
+      <div class="card-body" *ngIf="summary">
+       
+        <ul>
+          <li class="tab">Table</li>
+          <li
+            *ngFor="let item of summary[0].table"
+            [ngClass]="{ 'item-selected': item == singleSelect }"
+            (click)="toggleSelection(item, 'table')"
+          >
+            {{ item }}
+          </li>
+          <li class="tab">Views</li>
+          <li
+            *ngFor="let item of summary[3].view"
+            [ngClass]="{ 'item-selected': item == singleSelect }"
+            (click)="toggleSelection(item, 'view')"
+          >
+            {{ item }}
+          </li>
+          <li class="tab">Schema</li>
+          <li
+            *ngFor="let item of summary[2].schema"
+            [ngClass]="{ 'item-selected': item == singleSelect }"
+            (click)="toggleSelection(item, 'schema')"
+          >
+            {{ item }}
+          </li>
+          <li class="tab">Database</li>
+          <li
+            *ngFor="let item of summary[1].database"
+            [ngClass]="{ 'item-selected': item == singleSelect }"
+            (click)="toggleSelection(item, 'database')"
+          >{{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-sm-4 cen">
+      <div class="flex-parent jc-center">
+        <button type="button" class="btn btn-primary" (click)="moveSelected()">
+          Select Single
+          <br>
+          <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="flex-parent jc-center">
+        <button type="button" class="btn btn-primary" (click)="moveAll()">
+          Select All
+          <br>
+          <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="flex-parent jc-center">
+        <button type="button" class="btn btn-primary" (click)="moveToSource()">
+          Remove All
+          <br>
+          <i class="fa fa-arrow-left"></i> </button>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header text-left">Target Components</div>
+        <div class="card-body">
+          <ul>
+            <li class="tab">Table</li>
+            <li *ngFor="let item of summary2[0].table; let i = index">
+              <app-parsechild [item]="item"
+              (save)="save($event,i,'table')"
+              (remove)="remove($event,i,'table')">
+              </app-parsechild>
+              <!-- <span *ngIf="!isEditing" >{{ item }}</span>
+               <span 
+              *ngIf="!isEditing"
+              class="material-icons last"
+              (click)="remove(i, 'table')"
+              style="float:right;">
+                deletes
+              </span>
+              <input *ngIf="isEditing" type="text" [(ngModel)]="editingItem" />
+              <span
+                *ngIf="isEditing"
+                class="material-icons"
+                (click)="save(i, 'table')" 
+               >
+                save
+              </span>
+              <span
+                *ngIf="!isEditing"
+                class="material-icons"
+                (click)="switchEditMode(i, 'table')"
+               >
+                edit
+              </span>
+              <span class="material-icons" (click)="remove(i, 'table')">
+                deletes
+              </span> -->
+          
+            </li>
+            <li class="tab">Views</li>
+            <li *ngFor="let item of summary2[3].view; let i = index">
+              <app-parsechild [item]="item"
+              (save)="save($event,i,'view')"
+              (remove)="remove($event,i,'view')">
+              </app-parsechild>
+              <!-- <span *ngIf="!isEditing">{{ item }}</span>
+               <span 
+              *ngIf="!isEditing"
+              class="material-icons last"
+              (click)="remove(i, 'table')"
+              style="float:right;">
+                deletes
+              </span> 
+              <input *ngIf="isEditing" type="text" [(ngModel)]="editingItem" />
+              <span
+                *ngIf="isEditing"
+                class="material-icons"
+                (click)="save(i, 'view')" 
+                >
+                save
+              </span>
+              <span
+                *ngIf="!isEditing"
+                class="material-icons"
+                (click)="switchEditMode(i, 'view')"
+                >
+                edit
+              </span>
+              
+              <span class="material-icons" (click)="remove(i, 'view')">
+                deletes
+              </span> -->
+            </li>
+            <li class="tab">Schema</li>
+            <li *ngFor="let item of summary2[2].schema; let i = index">
+              <app-parsechild [item]="item"
+              (save)="save($event,i,'schema')"
+              (remove)="remove($event,i,'schema')">
+              </app-parsechild>
+              <!--<span *ngIf="!isEditing">{{ item }}</span>
+              <span 
+              *ngIf="!isEditing"
+              class="material-icons last"
+              (click)="remove(i, 'table')"
+              style="float:right;">
+                deletes
+              </span> 
+              <input *ngIf="isEditing" type="text" [(ngModel)]="editingItem" />
+            
+              <span
+                *ngIf="isEditing"
+                class="material-icons"
+                (click)="save(i, 'schema')" 
+                >
+                save
+              </span>
+              <span
+              *ngIf="!isEditing"
+              class="material-icons"
+              (click)="switchEditMode(i, 'schema')"
+              >
+              edit
+            </span>
+              <span class="material-icons" (click)="remove(i, 'schema')">
+                deletes
+              </span>-->
+            </li>
+            <li class="tab">Database</li>
+            <li *ngFor="let item of summary2[1].database; let i = index">
+              <app-parsechild [item]="item"
+              (save)="save($event,i,'database')"
+              (remove)="remove($event,i,'database')">
+              </app-parsechild>
+              <!-- <span *ngIf="!isEditing">{{ item }}</span>
+               <span 
+              *ngIf="!isEditing"
+              class="material-icons last"
+              (click)="remove(i, 'table')"
+              style="float:right;">
+                deletes
+              </span> 
+              <input *ngIf="isEditing" type="text" [(ngModel)]="editingItem" />
+            
+            <span
+              *ngIf="isEditing"
+              class="material-icons"
+              (click)="save(i, 'database')" 
+              >
+              save
+            </span>
+            <span
+            *ngIf="!isEditing"
+            class="material-icons"
+            (click)="switchEditMode(i, 'database')"
+            >
+            edit
+          </span>
+              <span class="material-icons" (click)="remove(i, 'database')">
+                deletes
+              </span> -->
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+      
+      <!-- <button  mat-button matStepperNext type="submit" class="dabutton btn btn-primary max-width" (click)="onSubmit()">SUBMIT</button> -->
+    </div>
+ </div> 
+
+ <button mat-button matStepperPrevious class="btn btn-light mr-3 float-left">
+  <i class="fa fa-arrow-left"></i> Previous</button>
+
+  <button mat-button matStepperNext class="btn btn-light float-right" 
+  (click)="onSubmit()" >
+    Submit & Next <i class="fa fa-arrow-right"></i></button>
+
+
+
+
